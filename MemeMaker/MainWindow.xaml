@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:MemeMaker"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:BooleanCheckBox x:Key="Convert"></local:BooleanCheckBox>
+    </Window.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
             <Grid>
@@ -32,13 +35,14 @@
                 <TextBlock Grid.Column="0" Grid.Row="4">Imagen</TextBlock>
                 <TextBox x:Name="RutaImagen" Grid.Column="1" Grid.Row="4"></TextBox>
                 <TextBlock Grid.Column="0" Grid.Row="5">Borde</TextBlock> 
-                <CheckBox x:Name="PonerBorde"  Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" IsChecked="True"></CheckBox>
+                <CheckBox x:Name="CheckBoxBorde"  Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" IsChecked="True"></CheckBox>
             </Grid>
-            <Border Height="{Binding ElementName=SliderAlto, Path=Value}" Width="{Binding ElementName=SliderAncho, Path=Value}" BorderBrush="Black" BorderThickness="{Binding ElementName=PonerBorde, Path=IsChecked}">
-                <Grid Background="Pink"  Height="{Binding ElementName=SliderAlto, Path=Value}" Width="{Binding ElementName=SliderAncho, Path=Value}">                
-                    <Image Stretch="Fill" Source="{Binding ElementName= RutaImagen, Path=Text}"  ></Image>                  
-                    <TextBlock HorizontalAlignment="Center" Margin="5" Text="{Binding ElementName=TextBoxSuperior, Path=Text  }"></TextBlock>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Text="{Binding ElementName=TextBoxInferior, Path=Text}"></TextBlock>
+            <Border Height="{Binding ElementName=SliderAlto, Path=Value}" Width="{Binding ElementName=SliderAncho, Path=Value}" BorderBrush="Black" 
+                    BorderThickness="{Binding ElementName=CheckBoxBorde, Path=IsChecked, Converter={StaticResource  Convert}}">
+                <Grid Background="Pink" >                
+                    <Image Stretch="Fill" Source="{Binding ElementName= RutaImagen, Path=Text}"></Image>                  
+                    <TextBlock Style="{StaticResource Imagen}" HorizontalAlignment="Center" Margin="5"  Text="{Binding ElementName=TextBoxSuperior, Path=Text}"></TextBlock>
+                    <TextBlock Style="{StaticResource Imagen}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Text="{Binding ElementName=TextBoxInferior, Path=Text}"></TextBlock>
                 </Grid>
             </Border>
         </StackPanel>
