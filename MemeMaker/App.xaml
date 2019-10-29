@@ -16,7 +16,8 @@
         <Style TargetType="{x:Type TextBlock}" x:Key="Imagen">
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>            
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextElement.Foreground" Value="White"/>
         </Style>
         
         <Style TargetType="{x:Type Slider}">

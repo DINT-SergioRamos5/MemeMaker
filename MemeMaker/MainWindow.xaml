@@ -24,19 +24,26 @@
                     <ColumnDefinition Width="100"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                                
                 <TextBlock Grid.Column="0" Grid.Row="0">Texto Superior</TextBlock>
                 <TextBox x:Name="TextBoxSuperior"  Grid.Column="1" Grid.Row="0">Texto Superior</TextBox>
+                
                 <TextBlock Grid.Column="0" Grid.Row="1">Texto Inferior:</TextBlock>
                 <TextBox x:Name="TextBoxInferior" Grid.Column="1" Grid.Row="1">Texto Inferior</TextBox>
+                
                 <TextBlock Grid.Column="0" Grid.Row="2">Alto</TextBlock>
                 <Slider x:Name="SliderAlto"  Grid.Column="1" Grid.Row="2"></Slider>
+                
                 <TextBlock Grid.Column="0" Grid.Row="3">Ancho</TextBlock>
                 <Slider x:Name="SliderAncho" Grid.Column="1" Grid.Row="3"></Slider>
+                
                 <TextBlock Grid.Column="0" Grid.Row="4">Imagen</TextBlock>
                 <TextBox x:Name="RutaImagen" Grid.Column="1" Grid.Row="4"></TextBox>
+                
                 <TextBlock Grid.Column="0" Grid.Row="5">Borde</TextBlock> 
                 <CheckBox x:Name="CheckBoxBorde"  Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" IsChecked="True"></CheckBox>
             </Grid>
+            
             <Border Height="{Binding ElementName=SliderAlto, Path=Value}" Width="{Binding ElementName=SliderAncho, Path=Value}" BorderBrush="Black" 
                     BorderThickness="{Binding ElementName=CheckBoxBorde, Path=IsChecked, Converter={StaticResource  Convert}}">
                 <Grid Background="Pink" >                
@@ -45,6 +52,7 @@
                     <TextBlock Style="{StaticResource Imagen}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Text="{Binding ElementName=TextBoxInferior, Path=Text}"></TextBlock>
                 </Grid>
             </Border>
+            
         </StackPanel>
         
         
